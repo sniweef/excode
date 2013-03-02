@@ -1,0 +1,4 @@
+MODULES_MANAGER_V2
+SimpleServer|/home/sniweef/programming/python/SimpleServer/SimpleServer.py
+cgi-bin.__init__|/home/sniweef/programming/python/SimpleServer/cgi-bin/__init__.py
+cgi-bin.cgi101|/home/sniweef/programming/python/SimpleServer/cgi-bin/cgi101.py

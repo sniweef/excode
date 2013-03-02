@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            p
+            {
+                color:blue;
+                text-align:center;
+
+            }
+            .marked
+            {
+                background-color:red;
+
+            }
+            p.marked 
+            {
+                color:white;
+
+            }
+            .marked  p
+            {
+                color:black;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <p>This is a blue, center-aligned paragraph.</p>
+
+        <p  class="marked">This p element should not be blue.</p>
+
+        <div class="marked">
+            <p>hello</p>
+        </div>
+
+
+        <p>p elements inside a "marked" classed element keeps the alignment style, but has a different text color.</p>
+    </body>
+</html>
+

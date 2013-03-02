@@ -1,0 +1,23 @@
+-- VERSION_3
+-- START DISKCACHE
+/home/sniweef/programming/python/.metadata/.plugins/org.eclipse.core.resources/.projects/SimpleServer/com.python.pydev.analysis/v1_indexcache
+.v1_indexcache
+cgi-bin.__init__|0|/home/sniweef/programming/python/SimpleServer/cgi-bin/__init__.py
+SimpleServer|0|/home/sniweef/programming/python/SimpleServer/SimpleServer.py
+cgi-bin.cgi101|0|/home/sniweef/programming/python/SimpleServer/cgi-bin/cgi101.py
+-- END DISKCACHE
+-- START DICTIONARY
+2
+2=SimpleServer
+1=cgi-bin.cgi101
+-- END DICTIONARY
+-- START TREE 1
+4
+for|1|form!11@
+por|1|port!19@
+srv|2|srvraddr!19@srvrobj!19@
+web|1|webdir!19@
+-- END TREE
+-- START TREE 2
+0
+-- END TREE

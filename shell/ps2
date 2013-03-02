@@ -1,0 +1,161 @@
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1   3652  2028 ?        Ss   15:33   0:00 /sbin/init
+root         2  0.0  0.0      0     0 ?        S    15:33   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S    15:33   0:00 [ksoftirqd/0]
+root         6  0.0  0.0      0     0 ?        S    15:33   0:00 [migration/0]
+root         7  0.0  0.0      0     0 ?        S    15:33   0:00 [watchdog/0]
+root         8  0.0  0.0      0     0 ?        S    15:33   0:00 [migration/1]
+root        10  0.0  0.0      0     0 ?        S    15:33   0:00 [ksoftirqd/1]
+root        12  0.0  0.0      0     0 ?        S    15:33   0:00 [watchdog/1]
+root        13  0.0  0.0      0     0 ?        S    15:33   0:00 [migration/2]
+root        15  0.0  0.0      0     0 ?        S    15:33   0:00 [ksoftirqd/2]
+root        16  0.0  0.0      0     0 ?        S    15:33   0:00 [watchdog/2]
+root        17  0.0  0.0      0     0 ?        S    15:33   0:00 [migration/3]
+root        19  0.0  0.0      0     0 ?        S    15:33   0:00 [ksoftirqd/3]
+root        20  0.0  0.0      0     0 ?        S    15:33   0:00 [watchdog/3]
+root        21  0.0  0.0      0     0 ?        S<   15:33   0:00 [cpuset]
+root        22  0.0  0.0      0     0 ?        S<   15:33   0:00 [khelper]
+root        23  0.0  0.0      0     0 ?        S    15:33   0:00 [kdevtmpfs]
+root        24  0.0  0.0      0     0 ?        S<   15:33   0:00 [netns]
+root        26  0.0  0.0      0     0 ?        S    15:33   0:00 [sync_supers]
+root        27  0.0  0.0      0     0 ?        S    15:33   0:00 [bdi-default]
+root        28  0.0  0.0      0     0 ?        S<   15:33   0:00 [kintegrityd]
+root        29  0.0  0.0      0     0 ?        S<   15:33   0:00 [kblockd]
+root        30  0.0  0.0      0     0 ?        S<   15:33   0:00 [ata_sff]
+root        31  0.0  0.0      0     0 ?        S    15:33   0:00 [khubd]
+root        32  0.0  0.0      0     0 ?        S<   15:33   0:00 [md]
+root        34  0.0  0.0      0     0 ?        S    15:33   0:00 [khungtaskd]
+root        35  0.0  0.0      0     0 ?        S    15:33   0:00 [kswapd0]
+root        36  0.0  0.0      0     0 ?        SN   15:33   0:00 [ksmd]
+root        37  0.0  0.0      0     0 ?        SN   15:33   0:00 [khugepaged]
+root        38  0.0  0.0      0     0 ?        S    15:33   0:00 [fsnotify_mark]
+root        39  0.0  0.0      0     0 ?        S    15:33   0:00 [ecryptfs-kthrea]
+root        40  0.0  0.0      0     0 ?        S<   15:33   0:00 [crypto]
+root        48  0.0  0.0      0     0 ?        S<   15:33   0:00 [kthrotld]
+root        50  0.0  0.0      0     0 ?        S    15:33   0:00 [kworker/3:1]
+root        52  0.0  0.0      0     0 ?        S    15:33   0:00 [kworker/1:1]
+root        53  0.0  0.0      0     0 ?        S    15:33   0:00 [scsi_eh_0]
+root        54  0.0  0.0      0     0 ?        S    15:33   0:00 [scsi_eh_1]
+root        55  0.0  0.0      0     0 ?        S    15:33   0:00 [scsi_eh_2]
+root        56  0.0  0.0      0     0 ?        S    15:33   0:00 [scsi_eh_3]
+root        57  0.0  0.0      0     0 ?        S    15:33   0:00 [scsi_eh_4]
+root        59  0.0  0.0      0     0 ?        S    15:33   0:01 [kworker/u:4]
+root        81  0.0  0.0      0     0 ?        S<   15:33   0:00 [devfreq_wq]
+root        82  0.0  0.0      0     0 ?        S    15:33   0:02 [kworker/2:2]
+root       170  0.0  0.0      0     0 ?        S    15:33   0:00 [kworker/1:2]
+root       238  0.0  0.0      0     0 ?        S<   15:33   0:00 [ttm_swap]
+root       294  0.0  0.0      0     0 ?        S    15:33   0:00 [jbd2/sda10-8]
+root       295  0.0  0.0      0     0 ?        S<   15:33   0:00 [ext4-dio-unwrit]
+root       378  0.0  0.0   2816   608 ?        S    15:33   0:00 upstart-udev-bridge --daemon
+root       381  0.0  0.0   3340  1612 ?        Ss   15:33   0:00 /sbin/udevd --daemon
+root       742  0.0  0.0   2828   352 ?        S    15:33   0:00 upstart-socket-bridge --daemon
+root       744  0.0  0.0      0     0 ?        S<   15:33   0:00 [kpsmoused]
+root       745  0.0  0.0      0     0 ?        S    15:33   0:00 [ips-adjust]
+root       746  0.0  0.0      0     0 ?        S    15:33   0:00 [ips-monitor]
+root       747  0.0  0.0      0     0 ?        S    15:33   0:00 [irq/44-mei]
+root       752  0.0  0.0      0     0 ?        S<   15:33   0:00 [cfg80211]
+root       822  0.0  0.0      0     0 ?        S<   15:33   0:00 [hd-audio0]
+root       826  0.0  0.0      0     0 ?        S<   15:33   0:00 [hd-audio1]
+root       838  0.0  0.0      0     0 ?        S    15:33   0:00 [kworker/3:2]
+root       869  0.0  0.0   5348   948 ?        Ss   15:33   0:00 /sbin/mount.ntfs /dev/sda5 /media/study -o rw,umask=007,gid=46
+root       874  0.0  0.0   5480  1244 ?        Ss   15:33   0:00 /sbin/mount.ntfs /dev/sda6 /media/entertainment -o rw,umask=007,gid=46
+root       878  0.0  0.0      0     0 ?        S    15:33   0:00 [jbd2/sda9-8]
+root       879  0.0  0.0      0     0 ?        S<   15:33   0:00 [ext4-dio-unwrit]
+102        913  0.0  0.0   3976  1928 ?        Ss   15:33   0:00 dbus-daemon --system --fork --activation=upstart
+root       935  0.0  0.1   7204  2812 ?        Ss   15:33   0:00 /usr/sbin/modem-manager
+root       937  0.0  0.0   4724  1636 ?        Ss   15:33   0:00 /usr/sbin/bluetoothd
+root       945  0.0  0.2  31464  5396 ?        Ssl  15:33   0:00 NetworkManager
+syslog     946  0.0  0.0  31044  1364 ?        Sl   15:33   0:00 rsyslogd -c5
+avahi      951  0.0  0.0   3436  1476 ?        S    15:33   0:00 avahi-daemon: running [sniweef-PC.local]
+root       953  0.0  0.1  25448  3856 ?        Sl   15:33   0:00 /usr/lib/policykit-1/polkitd --no-debug
+avahi      954  0.0  0.0   3436   432 ?        S    15:33   0:00 avahi-daemon: chroot helper
+root      1016  0.0  0.1   5940  2124 ?        Ss   15:33   0:00 /sbin/wpa_supplicant -B -P /run/sendsigs.omit.d/wpasupplicant.pid -u -s -O /var/run/wpa_supplicant
+root      1021  0.0  0.0   4612   840 tty4     Ss+  15:33   0:00 /sbin/getty -8 38400 tty4
+root      1026  0.0  0.0   4612   848 tty5     Ss+  15:33   0:00 /sbin/getty -8 38400 tty5
+root      1038  0.0  0.0   2344   852 ?        Ss   15:33   0:00 /usr/sbin/isatapd --daemon --pid /var/run/isatapd.pid --mtu 1280 isatap
+root      1043  0.0  0.0   4612   840 tty2     Ss+  15:33   0:00 /sbin/getty -8 38400 tty2
+root      1046  0.0  0.0   4612   852 tty3     Ss+  15:33   0:00 /sbin/getty -8 38400 tty3
+root      1049  0.0  0.0   4612   844 tty6     Ss+  15:33   0:00 /sbin/getty -8 38400 tty6
+root      1063  0.0  0.0   2156   704 ?        Ss   15:33   0:00 acpid -c /etc/acpi/events -s /var/run/acpid.socket
+root      1073  0.0  0.0   3584   640 ?        Ss   15:33   0:00 /usr/sbin/irqbalance
+root      1074  0.0  0.1  34020  3116 ?        Ssl  15:33   0:00 lightdm
+root      1128  2.7  1.7  66892 34316 tty7     Ss+  15:33   1:43 /usr/bin/X :0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch -background none
+daemon    1141  0.0  0.0   2452   344 ?        Ss   15:33   0:00 atd
+root      1158  0.0  0.0      0     0 ?        S<   15:33   0:00 [krfcommd]
+root      1169  0.0  0.1  10928  3020 ?        Ss   15:33   0:00 /usr/sbin/cupsd -F
+root      1287  0.0  0.1  15808  3396 ?        Sl   15:33   0:00 /usr/lib/accountsservice/accounts-daemon
+root      1300  0.0  0.0   4612   844 tty1     Ss+  15:33   0:00 /sbin/getty -8 38400 tty1
+root      1317  0.0  0.1  34196  3344 ?        Sl   15:33   0:00 /usr/sbin/console-kit-daemon --no-daemon
+root      1412  0.0  0.1  28444  3828 ?        Sl   15:33   0:00 /usr/lib/upower/upowerd
+root      1540  0.0  0.1  18200  3556 ?        Sl   15:33   0:00 lightdm --session-child 12 19
+root      1559  0.0  0.0   2908  1292 ?        S    15:33   0:00 /sbin/dhclient -d -4 -sf /usr/lib/NetworkManager/nm-dhcp-client.action -pf /var/run/sendsigs.omit.d/network-manager.dhclient-wlan0.pid -lf /var/lib/dhcp/dhclient-d7fa47b4-b349-4818-ba7b-f60f3bba1709-wlan0.lease -cf /var/run/nm-dhclient-wlan0.conf wlan0
+root      1562  0.0  0.0      0     0 ?        S    15:33   0:00 [flush-8:0]
+nobody    1564  0.0  0.0   5384  1164 ?        S    15:33   0:00 /usr/sbin/dnsmasq --no-resolv --keep-in-foreground --no-hosts --bind-interfaces --pid-file=/var/run/sendsigs.omit.d/network-manager.dnsmasq.pid --listen-address=127.0.0.1 --conf-file=/var/run/nm-dns-dnsmasq.conf --cache-size=0 --proxy-dnssec
+sniweef   1684  0.0  0.0   2216   556 ?        Ss   15:34   0:00 /bin/sh /etc/xdg/xfce4/xinitrc -- /etc/X11/xinit/xserverrc
+sniweef   1710  0.4  0.1  37796  3560 ?        Sl   15:34   0:16 /usr/bin/ibus-daemon --xim
+sniweef   1717  0.0  0.0   4060   204 ?        Ss   15:34   0:00 /usr/bin/ssh-agent /usr/bin/dbus-launch --exit-with-session startxfce4
+sniweef   1720  0.0  0.0   3920   488 ?        S    15:34   0:00 /usr/bin/dbus-launch --exit-with-session startxfce4
+sniweef   1721  0.0  0.1   5136  2204 ?        Ss   15:34   0:00 //bin/dbus-daemon --fork --print-pid 5 --print-address 7 --session
+sniweef   1729  0.0  0.1   6548  2480 ?        S    15:34   0:00 /usr/lib/xfce4/xfconf/xfconfd
+sniweef   1733  0.0  0.1  19568  3208 ?        Sl   15:34   0:00 /usr/lib/i386-linux-gnu/ibus/ibus-gconf
+sniweef   1735  0.1  1.2  85720 23856 ?        Sl   15:34   0:06 /usr/bin/python /usr/share/ibus/ui/gtk/main.py
+sniweef   1737  0.0  0.2  30132  5696 ?        Sl   15:34   0:02 /usr/lib/i386-linux-gnu/ibus/ibus-x11 --kill-daemon
+sniweef   1743  0.0  0.1   7500  2480 ?        S    15:34   0:00 xscreensaver -no-splash
+sniweef   1746  0.0  0.1  10288  2504 ?        S    15:34   0:00 /usr/lib/i386-linux-gnu/gconf/gconfd-2
+sniweef   1747  0.0  0.2  22644  5764 ?        S    15:34   0:00 xfce4-session
+sniweef   1754  0.1  0.6  41740 12084 ?        S    15:34   0:04 xfwm4 --replace
+sniweef   1756  0.0  0.9  79344 19332 ?        Sl   15:34   0:02 xfce4-panel
+sniweef   1758  0.0  0.1  21008  3656 ?        S    15:34   0:00 xfsettingsd --force
+sniweef   1759  0.0  0.9  95916 18696 ?        Sl   15:34   0:01 Thunar --daemon
+sniweef   1761  0.0  0.7  76920 14508 ?        S    15:34   0:03 xfdesktop
+sniweef   1770  0.0  0.6  84704 12716 ?        Sl   15:34   0:01 update-notifier
+sniweef   1772  0.0  0.7  25496 15144 ?        S    15:34   0:02 /usr/bin/python /usr/share/ibus-table/engine/main.py --ibus
+sniweef   1773  0.0  0.7  89848 14224 ?        Sl   15:34   0:00 nm-applet
+sniweef   1777  0.0  0.2  29464  5024 ?        Sl   15:34   0:00 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+sniweef   1778  0.0  0.4 430656  8376 ?        Ssl  15:34   0:00 xfce4-volumed
+root      1783  0.0  0.1  25284  3568 ?        Sl   15:34   0:00 /usr/lib/udisks/udisks-daemon
+sniweef   1784  0.0  0.4  55300  8932 ?        Ssl  15:34   0:00 xfce4-power-manager
+sniweef   1785  0.0  0.1  22828  3708 ?        S    15:34   0:00 xfce4-settings-helper
+root      1786  0.0  0.0   6536   724 ?        S    15:34   0:00 udisks-daemon: not polling any devices
+sniweef   1792  0.0  0.1   9820  2276 ?        S    15:34   0:00 /usr/lib/gvfs/gvfsd
+sniweef   1797  0.2  0.2 175700  5740 ?        S<l  15:34   0:10 /usr/bin/pulseaudio --start --log-target=syslog
+sniweef   1798  0.0  0.1  34740  2584 ?        Sl   15:34   0:00 /usr/lib/gvfs//gvfs-fuse-daemon -f /home/sniweef/.gvfs
+rtkit     1800  0.0  0.0  21312  1248 ?        SNl  15:34   0:00 /usr/lib/rtkit/rtkit-daemon
+sniweef   1819  0.0  0.3  21900  6704 ?        S    15:34   0:00 /usr/lib/i386-linux-gnu/xfce4/panel/wrapper /usr/lib/i386-linux-gnu/xfce4/panel/plugins/libsystray.so 4 18874401 systray Notification Area Area where notification icons appear 
+sniweef   1821  0.0  0.7  92484 14608 ?        Sl   15:34   0:01 /usr/lib/i386-linux-gnu/xfce4/panel-plugins/xfce4-indicator-plugin  5 18874402 indicator Indicator Plugin An indicator of something that needs your attention on the desktop 
+sniweef   1832  0.0  0.4  43868  8920 ?        S    15:34   0:00 /usr/lib/i386-linux-gnu/xfce4/panel/wrapper /usr/lib/i386-linux-gnu/xfce4/panel/plugins/libxfsm-logout-plugin.so 9 18874408 xfsm-logout-plugin Session Menu Shows a menu with options to lock the screen, suspend, shutdown, or log out 
+sniweef   1850  0.0  0.3 136988  6260 ?        Sl   15:34   0:00 /usr/lib/indicator-sound/indicator-sound-service
+sniweef   1852  0.0  0.2  71780  5260 ?        Sl   15:34   0:00 /usr/lib/indicator-messages/indicator-messages-service
+sniweef   1854  0.0  0.2  63576  4416 ?        Sl   15:34   0:00 /usr/lib/indicator-application/indicator-application-service
+sniweef   1873  0.0  0.1  48284  3924 ?        S    15:34   0:00 /usr/lib/gvfs/gvfs-gdu-volume-monitor
+sniweef   1879  0.0  0.1  10624  2164 ?        S    15:34   0:00 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+sniweef   1881  0.0  0.1  21900  2168 ?        Sl   15:34   0:00 /usr/lib/gvfs/gvfs-afc-volume-monitor
+sniweef   1887  0.0  0.1  10232  3000 ?        S    15:34   0:00 /usr/lib/gvfs/gvfsd-trash --spawner :1.17 /org/gtk/gvfs/exec_spaw/0
+sniweef   1919  0.0  0.1  28772  3348 ?        Sl   15:34   0:00 /usr/lib/gvfs/gvfsd-network --spawner :1.17 /org/gtk/gvfs/exec_spaw/1
+sniweef   1928  0.0  0.1  10032  2572 ?        S    15:34   0:00 /usr/lib/gvfs/gvfsd-dnssd --spawner :1.17 /org/gtk/gvfs/exec_spaw/3
+sniweef   2014  2.8  1.5 289144 31100 ?        Sl   15:36   1:41 audacious
+sniweef   2024  0.0  0.1  33496  2408 ?        Sl   15:36   0:00 /usr/lib/dconf/dconf-service
+sniweef   2064  0.3  3.3 193856 66444 ?        Sl   15:38   0:14 WizNote
+root      5623  0.0  0.0   2600   904 ?        Ss   15:42   0:00 cron
+sniweef   6105  0.0  0.1  47460  3880 ?        Sl   15:44   0:00 /usr/bin/gnome-keyring-daemon --start --foreground --components=secrets
+sniweef   6121  0.2  0.7  85344 15476 ?        Sl   15:50   0:06 xfce4-terminal
+sniweef   6124  0.0  0.0      0     0 ?        Z    15:50   0:00 [xfce4-terminal] <defunct>
+sniweef   6125  0.0  0.2   9092  4000 pts/0    Ss   15:50   0:00 zsh
+sniweef   6160  0.0  0.0   8424  1524 pts/0    TN   15:53   0:00 zsh
+root      6350  0.0  0.0      0     0 ?        S    16:14   0:00 [kworker/u:1]
+sniweef   6391  0.0  0.2   9108  4052 pts/2    Ss+  16:15   0:00 zsh
+sniweef   6420  0.0  0.0   8772  1852 pts/2    TN   16:19   0:00 zsh
+sniweef   6423  0.0  0.0   8772  1856 pts/2    TN   16:19   0:00 zsh
+root      6458  0.0  0.0      0     0 ?        S    16:21   0:00 [kworker/2:1]
+root      6489  0.0  0.0      0     0 ?        S    16:25   0:00 [kworker/0:1]
+sniweef   6492  0.0  0.1   9092  2140 pts/0    TN   16:28   0:00 zsh
+sniweef   6519  0.5  1.3 137972 27644 ?        Sl   16:29   0:02 stardict
+sniweef   6521  0.0  0.1  40780  3452 ?        Ssl  16:29   0:00 /usr/lib/bonobo-activation/bonobo-activation-server --ac-activate --ior-output-fd=12
+root      6618  0.0  0.0      0     0 ?        S    16:30   0:00 [kworker/0:2]
+root      6740  0.0  0.0      0     0 ?        S    16:32   0:00 [kworker/u:0]
+root      6802  0.0  0.0      0     0 ?        S    16:34   0:00 [kworker/2:0]
+sniweef   6851  0.0  0.0   6324  1548 pts/0    S+   16:35   0:00 man ps
+sniweef   6862  0.0  0.0   6028   908 pts/0    S+   16:35   0:00 pager -s
+sniweef   6870  0.2  0.1   8600  3472 pts/3    Ss   16:35   0:00 zsh
+root      6907  0.0  0.0      0     0 ?        S    16:35   0:00 [kworker/0:0]
+sniweef   6949  0.0  0.0   4928  1164 pts/3    R+   16:36   0:00 ps aux

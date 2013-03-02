@@ -1,0 +1,69 @@
+PostMaster@qq.com
+hustnetwork@163.com
+来自qq.com的退信
+Fri, 27 Apr 2012 15:21:31 +0800
+--QQ_MAIL_RETURN
+Content-type: text/html; charset="gb18030"
+
+<html>
+<head>
+<title>QQ邮箱退信</title>
+</head>
+<body>
+<p style="font-size:14px; font-family:verdana; margin:0 0 10px; line-height:22px; text-align:left">很抱歉您发送的邮件被退回，以下是该邮件的相关信息：</p>
+
+<table style="width:90%; border-collapse:collapse; margin:0 0 15px" cellpadding="0" cellspacing="0" border="0">
+<tr> <td style="width:120px; font-family:verdana; font-size:14px; font-weight:bold; text-align:center; background:#E0ECF9; border:1px solid #C1D9F3">被退回邮件</td>
+<td style="border:1px solid #C1D9F3; font-family:verdana; padding:5px 15px; line-height:20px; font-size:14px;">主 题：STMP邮件测试 <br/>时 间：2012-04-27 15:21:13 </td> </tr> </table>
+
+<table style="width:90%; border-collapse:collapse; margin:0 0 10px" cellpadding="0" cellspacing="0" border="0"><tr><td colspan="2" style="font-size:14px;font-weight:bold;padding:5px 10px;border:1px solid #C1D9F3; background:#C1D9F3">无法发送到 114412367@qq.com</td>
+</tr><tr><td style="width:120px;  font-size:14px;text-align:center; background:#EFF5FB; border:1px solid #C1D9F3">退信原因</td>
+<td style="border:1px solid #C1D9F3; font-family:verdana; padding:5px 15px; line-height:20px; font-size:14px;">
+收件人（114412367@qq.com）关闭了数字帐号邮箱。 <br />  </td></tr>
+<tr><td style="width:120px;font-size:14px;text-align:center; background:#EFF5FB; border:1px solid #C1D9F3">解决方案</td>
+<td style="border:1px solid #C1D9F3; font-family:verdana; padding:5px 15px; line-height:20px; font-size:14px;">
+请重新发送邮件到收件人的别名帐号邮箱，或与您的收件人联系。 您也可以<a href="http://mail.qq.com/cgi-bin/help_feedback_person?sender=hustnetwork@163.com&receiver=114412367@qq.com&sendtime=2012-04-27 15:21:13&reason=BGRET_RECVALIASMAIL&subject=STMP%D3%CA%BC%FE%B2%E2%CA%D4" style="background:#bfda9c; color:#000000;" target="_blank">向管理员报告此退信</a>。</td></tr></table>
+
+
+<p style="font-size:14px; font-family:verdana; margin:0 0 10px; line-height:22px; text-align:left">此外，您还可以 <a href="http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=29&&no=188" target="_blank">点击这里</a> 获取更多关于退信的帮助信息。</p>
+</body>
+</html>
+
+--QQ_MAIL_RETURN
+Content-type: message/rfc822; name="mail.eml";
+	charset="gb18030"
+Content-Transfer-Encoding: 8bit
+Content-Disposition: attachment; filename="mail.eml"
+
+
+Received: from m50-132.163.com (unknown [123.125.50.132])
+	by newmx2.qq.com (NewMx) with SMTP id 
+	for <114412367@qq.com>; Fri, 27 Apr 2012 15:21:29 +0800
+X-QQ-SSF: 003000000000000000K00000000000
+X-QQ-mid: mx2t1335511290tskscrpiv
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Received:From:To:Subject:Date:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:Message-Id; bh=qZpuVpoRiJ
+	dgXkELxl6Y9g5aCTp3OhwI0yJFwozGOIw=; b=cokKok7XIs4iwC4P9KRwxPkSbm
+	kRutw7gEJPtob9if1dg+xDFBxOSdklo+O8TZTy7tiHZRcQW+1vg6XgGk6+QDyTI6
+	eIlZqzsKOrKXuWplAW4CWIJ+oLP5c051bI28jbG8UH7Llf50xqKmhejU10EDAied
+	1xp6Taj+FyYGzEL/A=
+Received: from 163.com (unknown [222.20.104.121])
+	by smtp2 (Coremail) with SMTP id DNGowEAZJWjwSJpPyP_qDQ--.80S2;
+	Fri, 27 Apr 2012 15:21:21 +0800 (CST)
+From: hustnetwork@163.com
+To: =?GBK?B?U29s?= <114412367@qq.com>
+Subject: =?GBK?B?U1RNUNPKvP6y4srU?=
+Date: Fri, 27 Apr 2012 15:21:13 +0800 (CST)
+MIME-Version: 1.0
+X-Priority: 3
+X-Mailer: BlackFox Mail[Copyright(C) 2007 Sol]
+X-CM-TRANSID:DNGowEAZJWjwSJpPyP_qDQ--.80S2
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU7xpnDUUUU
+Message-Id: <4F9A48F1.0AD497.22283@m50-132.163.com>
+X-CM-SenderInfo: hkxv30phwz02rn6rljoofrz/1tbiDRudqU9ooPK3aQABsI
+
+这是一封测试邮件。
+--QQ_MAIL_RETURN--
+

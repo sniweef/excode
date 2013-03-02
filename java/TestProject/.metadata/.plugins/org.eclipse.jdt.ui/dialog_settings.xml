@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="true" key="Comments"/>
+	<item value="false" key="InstanceOf"/>
+	<item value="0" key="org.eclipse.jdt.uiformatter_page.white_space.java_view.inner"/>
+	<item value="773" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_height"/>
+	<item value="true" key="Replace"/>
+	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
+	<item value="0" key="org.eclipse.jdt.uiformatter_page.white_space_tab_page.node"/>
+	<item value="true" key="ProjectSelectionDialog.show_all"/>
+	<item value="false" key="delegateUpdating"/>
+	<item value="false" key="TypeHierarchyViewPart.qualifiednames"/>
+	<item value="3" key="TypeHierarchyViewPart.orientation"/>
+	<item value="-1" key="org.eclipse.jdt.uiformatter_page.modify_dialog_tab_page.last_focus_index"/>
+	<item value="false" key="TypeHierarchyViewPart.linkeditors"/>
+	<item value="true" key="Annotations"/>
+	<item value="0" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_x"/>
+	<item value="1" key="org.eclipse.jdt.uiformatter_page.line_wrapping_tab_page.last_category_index"/>
+	<item value="27" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_y"/>
+	<item value="7" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.last_focus"/>
+	<item value="1280" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_width"/>
+	<item value="true" key="Public"/>
+	<item value="true" key="Abstract"/>
+	<section name="OptionalMessageDialog.hide.">
+		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
+	</section>
+	<section name="RefactoringWizard.preview">
+		<item value="400" key="height"/>
+		<item value="630" key="width"/>
+	</section>
+	<section name="quick_assist_proposal_size">
+	</section>
+	<section name="SourceActionDialog.methods">
+		<item value="false" key="Comments"/>
+		<item value="1" key="VisibilityModifier"/>
+		<item value="false" key="SynchronizedModifier"/>
+		<item value="false" key="FinalModifier"/>
+	</section>
+	<section name="ProblemSeveritiesConfigurationBlock">
+		<item value="false" key="expanded4"/>
+		<item value="false" key="expanded3"/>
+		<item value="false" key="expanded2"/>
+		<item value="false" key="expanded1"/>
+		<item value="false" key="expanded7"/>
+		<item value="false" key="expanded6"/>
+		<item value="false" key="expanded5"/>
+		<item value="true" key="expanded0"/>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.preferences.EditTemplateDialog_dialogBounds">
+		<item value="783" key="DIALOG_WIDTH"/>
+		<item value="190" key="DIALOG_Y_ORIGIN"/>
+		<item value="393" key="DIALOG_HEIGHT"/>
+		<item value="-24" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="JavaBuildConfigurationBlock">
+		<item value="false" key="expanded2"/>
+		<item value="false" key="expanded1"/>
+		<item value="true" key="expanded0"/>
+	</section>
+	<section name="javadoc">
+		<item value="false" key="nodeprecatedlist"/>
+		<item value="false" key="notree"/>
+		<item value="true" key="splitindex"/>
+		<item value="/usr/lib/jvm/java-7-openjdk/bin/javadoc" key="javadoc_command_history"/>
+		<item value="true" key="use"/>
+		<item value="false" key="nonavbar"/>
+		<item value="public" key="access"/>
+		<item value="true" key="version"/>
+		<item value="false" key="nodeprecated"/>
+		<item value="/home/sniweef/programming/java/TestProject/TankGame/doc" key="destdir"/>
+		<item value="true" key="author"/>
+		<item value="" key="docletname"/>
+		<item value="1.7" key="source"/>
+		<item value="false" key="openinbrowser"/>
+		<item value="false" key="noindex"/>
+		<item value="" key="docletpath"/>
+		<item value="/home/sniweef/programming/java/TestProject/TankGame/javadoc.xml" key="antpath"/>
+		<item value="true" key="fromStandard"/>
+		<section name="projects">
+			<section name="mail">
+				<item value="/home/sniweef/programming/java/TestProject/mail/doc" key="destdir"/>
+				<item value="/home/sniweef/programming/java/TestProject/mail/javadoc.xml" key="antpath"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="MailClient">
+				<item value="/home/sniweef/programming/java/TestProject/MailClient/doc" key="destdir"/>
+				<item value="/home/sniweef/programming/java/TestProject/MailClient/javadoc.xml" key="antpath"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="FactoryEx">
+				<item value="/home/sniweef/programming/java/TestProject/test/FactoryEx/doc" key="destdir"/>
+				<item value="/home/sniweef/programming/java/TestProject/test/FactoryEx/javadoc.xml" key="antpath"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="StaticEx">
+				<item value="/home/sniweef/programming/java/TestProject/test/StaticEx/doc" key="destdir"/>
+				<item value="/home/sniweef/programming/java/TestProject/test/StaticEx/javadoc.xml" key="antpath"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="TankGame">
+				<item value="/home/sniweef/programming/java/TestProject/TankGame/doc" key="destdir"/>
+				<item value="/home/sniweef/programming/java/TestProject/TankGame/javadoc.xml" key="antpath"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="ProcessorAndAdapter">
+				<item value="/home/sniweef/programming/java/TestProject/test/ProcessorAndAdapter/doc" key="destdir"/>
+				<item value="/home/sniweef/programming/java/TestProject/test/ProcessorAndAdapter/javadoc.xml" key="antpath"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="StringEx">
+				<item value="/home/sniweef/programming/java/TestProject/test/StringEx/doc" key="destdir"/>
+				<item value="/home/sniweef/programming/java/TestProject/test/StringEx/javadoc.xml" key="antpath"/>
+				<item value="" key="href"/>
+			</section>
+		</section>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.dialogs.FilteredTypesSelectionDialog">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History/&gt;" key="History"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="139" key="DIALOG_Y_ORIGIN"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="340" key="DIALOG_X_ORIGIN"/>
+			<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		</section>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
+		<item value="true" key="group_libraries"/>
+		<item value="false" key="linkWithEditor"/>
+		<item value="1" key="layout"/>
+		<item value="1" key="rootMode"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;packageExplorer group_libraries=&quot;1&quot; layout=&quot;1&quot; linkWithEditor=&quot;0&quot; rootMode=&quot;1&quot; workingSetName=&quot;Aggregate for window 1353567619808&quot;&gt;&#x0A;&lt;customFilters userDefinedPatternsEnabled=&quot;false&quot;&gt;&#x0A;&lt;xmlDefinedFilters&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.LibraryFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.StaticsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.pde.ui.ExternalPluginLibrariesFilter1&quot; isEnabled=&quot;true&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.FieldsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*&quot; isEnabled=&quot;true&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.pde.ui.BinaryProjectFilter1&quot; isEnabled=&quot;false&quot;/&gt;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0A;&lt;/xmlDefinedFilters&gt;&#x0A;&lt;/customFilters&gt;&#x0A;&lt;/packageExplorer&gt;" key="memento"/>
+	</section>
+	<section name="completion_proposal_size">
+	</section>
+	<section name="JavaElementSearchActions">
+	</section>
+	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
+		<item value="663" key="DIALOG_WIDTH"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+		<item value="773" key="DIALOG_HEIGHT"/>
+		<item value="309" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="NewClassWizardPage">
+		<item value="false" key="create_constructor"/>
+		<item value="true" key="create_unimplemented"/>
+		<item value="true" key="create_main"/>
+	</section>
+	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item value="false" key="updateQualifiedNames"/>
+		<item value="*" key="patterns"/>
+		<item value="1" key="updateSimilarElementsMatchStrategy"/>
+		<item value="false" key="updateTextualMatches"/>
+		<item value="false" key="updateSimilarElements"/>
+	</section>
+	<section name="RenameInformationPopup">
+	</section>
+	<section name="AddGetterSetterDialog">
+		<item value="false" key="RemoveFinal"/>
+		<item value="false" key="SortOrdering"/>
+	</section>
+	<section name="JavadocWizardDialog">
+		<item value="808" key="DIALOG_WIDTH"/>
+		<item value="14" key="DIALOG_Y_ORIGIN"/>
+		<item value="749" key="DIALOG_HEIGHT"/>
+		<item value="236" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+</section>
