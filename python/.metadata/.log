@@ -1385,3 +1385,15 @@ org.python.pydev.core.MisconfigurationException: Interpreter: python not found
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+!SESSION 2013-03-04 18:13:17.037 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_15
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.jobs 2 2 2013-03-04 18:14:30.633
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.python.pydev.editor.PyEditTitle$4
+
+!ENTRY org.eclipse.core.jobs 2 2 2013-03-04 18:14:30.657
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.python.pydev.analysis.system_info_builder.InterpreterInfoBuilder$InterpreterBuilderJob
