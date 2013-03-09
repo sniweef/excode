@@ -1,8 +1,13 @@
 CC = gcc
 FLAG = `pkg-config --cflags --libs gtk+-3.0`
-all:main.o 
-	$(CC) -Wall -o os-tm main.o $(FLAG)
-main.o:
+
+all:main.o system.o process-tree.o
+	$(CC) -Wall -o os-tm main.o system.o process-tree.o $(FLAG)
+main.o: main.c
 	$(CC) -Wall -c main.c $(FLAG)
+system.o: system.c
+	$(CC) -Wall -c system.c $(FLAG)
+process-tree.o: process-tree.c
+	$(CC) -Wall -c process-tree.c $(FLAG)
 clean:
 	rm -f *.o
