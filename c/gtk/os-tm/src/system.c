@@ -152,7 +152,7 @@ get_process_details(guint pid, Process *process)
                 &idummy,   // cutime " waited for children in user mode
                 &idummy,   // cstime " system mode
                 &idummy,   // priority (nice value + fifteen)
-                (gint*)&process->prio, // nice range from 19 to -19
+                &process->prio, // nice range from 19 to -19
                 &idummy,   // hardcoded 0
 
                 &idummy,   // itrealvalue time in jiffies to next SIGALRM
@@ -189,7 +189,7 @@ get_process_details(guint pid, Process *process)
         stat(filename, &sstat);
         pw = getpwuid(sstat.st_uid);
         process->uid = sstat.st_uid;
-        g_strlcpy(process->uid_name, (pw==NULL)?pw->pw_name:"nobody",
+        g_strlcpy(process->uid_name, (pw==NULL)?"nobody":pw->pw_name,
                 sizeof(process->uid_name));
     }
 

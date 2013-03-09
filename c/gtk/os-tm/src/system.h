@@ -17,7 +17,7 @@ typedef struct _Process {
     gfloat  cpu_system;
     guint   vsz;
     guint64 rss;
-    gshort  prio;
+    gint  prio;
 } Process;
 
 gboolean get_process_list(GArray *process_list);

@@ -13,13 +13,15 @@ enum {
     PT_COLUMN_UID_STR,
     PT_COLUMN_CPU,
     PT_COLUMN_CPU_STR,
-    PT_COLUMN_PRIORITY,
+    PT_COLUMN_PRIO,
     PT_COLUMN_BACKGROUND,
     PT_COLUMN_FOREGROUND,
     PT_COLUMN_TIMESTAMP,
     PT_N_COLUMNS,
 };
 
-void init_process_page(GtkWidget  *process_win);
+GtkWidget *init_process_page();
+
+//void init_process_page(GtkWidget *process_win);
 
 #endif
