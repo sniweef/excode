@@ -12,7 +12,7 @@ enum {
     COLUMN_RSS,
     COLUMN_UID,
     COLUMN_CPU,
-    COLUMN_PRIORITY,
+    COLUMN_PRIO,
     N_COLUMNS,
 };
 
@@ -27,6 +27,11 @@ update_model()
     gint list_len; 
     Process *process;
     
+    if (process_list != NULL)
+        g_array_free(process_list, FALSE);
+    process_list = g_array_new(FALSE, FALSE, sizeof(Process));
+
+    get_process_list(process_list);
     if (process_list == NULL)
         return ;
     list_len = process_list->len;
@@ -43,15 +48,9 @@ update_model()
                 COLUMN_RSS, process->rss,
                 COLUMN_UID, process->uid,
                 COLUMN_CPU, process->cpu_user+process->cpu_system,
-                COLUMN_PRIORITY, process->prio,
+                COLUMN_PRIO, process->prio,
                 -1);
-
     }
-
-    //gtk_tree_store_set();
-    //if (processes->len == 0) {
-        
-    //}
 }
 static void
 init_column(GtkWidget *pro_tree_view)
@@ -64,17 +63,55 @@ init_column(GtkWidget *pro_tree_view)
     cell_right_aligned = gtk_cell_renderer_text_new();
     g_object_set(cell_right_aligned, "xalign", 1.0, NULL);
 
+#define COLUMN_PROPERTIES "expand", TRUE, "clickable", TRUE,\
+    "reorderable", TRUE, "resizable", TRUE, "visible", TRUE
     column = gtk_tree_view_column_new_with_attributes("Process", 
             cell_text, "text", COLUMN_COMMAND, NULL);
+    g_object_set(column, COLUMN_PROPERTIES, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(pro_tree_view), column);
 
+#undef COLUMN_PROPERTIES
+#define COLUMN_PROPERTIES "expand", FALSE, "clickable", TRUE, \
+    "reorderable", TRUE, "resizable", TRUE, "visible", TRUE
     column = gtk_tree_view_column_new_with_attributes("PID", 
             cell_right_aligned, "text", COLUMN_PID, NULL);
+    g_object_set(column, COLUMN_PROPERTIES, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(pro_tree_view), column);
 
 
     column = gtk_tree_view_column_new_with_attributes("PPID", 
             cell_right_aligned, "text", COLUMN_PPID, NULL);
+    g_object_set(column, COLUMN_PROPERTIES, NULL);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(pro_tree_view), column);
+
+    column = gtk_tree_view_column_new_with_attributes("State", 
+            cell_text, "text", COLUMN_STATE, NULL);
+    g_object_set(column, COLUMN_PROPERTIES, NULL);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(pro_tree_view), column);
+
+    column = gtk_tree_view_column_new_with_attributes("VSZ", 
+            cell_right_aligned, "text", COLUMN_VSZ, NULL);
+    g_object_set(column, COLUMN_PROPERTIES, NULL);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(pro_tree_view), column);
+
+    column = gtk_tree_view_column_new_with_attributes("RSS", 
+            cell_right_aligned, "text", COLUMN_RSS, NULL);
+    g_object_set(column, COLUMN_PROPERTIES, NULL);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(pro_tree_view), column);
+
+    column = gtk_tree_view_column_new_with_attributes("RSS", 
+            cell_right_aligned, "text", COLUMN_RSS, NULL);
+    g_object_set(column, COLUMN_PROPERTIES, NULL);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(pro_tree_view), column);
+
+    column = gtk_tree_view_column_new_with_attributes("UID", 
+            cell_right_aligned, "text", COLUMN_UID, NULL);
+    g_object_set(column, COLUMN_PROPERTIES, NULL);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(pro_tree_view), column);
+
+    column = gtk_tree_view_column_new_with_attributes("Prio", 
+            cell_right_aligned, "text", COLUMN_PRIO, NULL);
+    g_object_set(column, COLUMN_PROPERTIES, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(pro_tree_view), column);
 
 }
@@ -84,8 +121,6 @@ init_process_page(GtkWidget *process_win)
 {
     GtkWidget *pro_tree_view;
 
-    process_list = g_array_new(FALSE, FALSE, sizeof(Process));
-    get_process_list(process_list);
 
     pro_tree_model = gtk_tree_store_new(N_COLUMNS, 
            G_TYPE_STRING, G_TYPE_UINT, G_TYPE_UINT,
