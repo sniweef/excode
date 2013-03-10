@@ -2,15 +2,15 @@
 Maximized=1
 Geometry=1280x718+0+25
 
-[Project Manager]
-Shortcut=xfce-tm//src//xfce4-taskmanager
-Expand=xfce-tm%%%xfce-tm//src%%%xfce-tm//src//xfce4-taskmanager
-
 [File Loader]
-Files=../../src/process-tree-view.c#117%%%../../src/task-manager-linux.c#330%%%../../src/task-manager.c#454
+Files=../../src/process-tree-view.c#535%%%../../src/task-manager-skel.c#1%%%../../src/task-manager.c#565%%%../../src/settings.c#1%%%../../src/process-window.h#1%%%../../src/process-window.c#106
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
+
+[Project Manager]
+Shortcut=xfce-tm//src//xfce4-taskmanager
+Expand=xfce-tm%%%xfce-tm//src%%%xfce-tm//src//xfce4-taskmanager
 
 [Execution]
 Run in terminal=2

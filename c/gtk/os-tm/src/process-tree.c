@@ -22,6 +22,7 @@ static GtkWidget *pro_tree_view = NULL;
 static GtkTreeViewColumn *sort_column = NULL;
 
 static void column_clicked (GtkTreeViewColumn *column);
+//static void selected(GtkTreeView *tree_view, gboolean arg, gpointer data);
 
 static void
 memory_human_size(guint64 mem, gchar *mem_str)
@@ -42,6 +43,54 @@ memory_human_size(guint64 mem, gchar *mem_str)
     g_snprintf (mem_str, 64, "%lu B", (gulong)mem);
 }
 static void 
+get_tree_iter(GtkTreeIter *iter, guint pid)
+{
+    gboolean valid;
+    guint pid_iter;
+
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(pro_tree_model),
+            iter);
+    while (valid) {
+        gtk_tree_model_get(GTK_TREE_MODEL(pro_tree_model), iter,
+                PT_COLUMN_PID, &pid_iter, -1);
+        if (pid == pid_iter)
+            break;
+        valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(pro_tree_model),
+                iter);
+    }
+
+    if (!valid)
+        gtk_tree_store_append(pro_tree_model, iter, NULL);
+}
+static void
+rm_terminated_process(GArray *old_process_list)
+{
+    gint i, j;
+    Process *old_process, *new_process;
+    gboolean found;
+
+    for (i = 0; i < old_process_list->len; i++) {
+        found = FALSE;
+        old_process = &g_array_index(old_process_list, Process, i);
+        
+        for (j = 0; j < process_list->len; j++) {
+            new_process = &g_array_index(process_list, Process, j);
+            if (old_process->pid == new_process->pid) {
+                //g_print("found.pid=%u\n", old_process->pid);
+                found = TRUE;
+                break;
+            }
+        }
+
+        if (!found) {
+            GtkTreeIter iter;
+            //g_print("remove process %d\n", old_process->pid);
+            get_tree_iter(&iter, old_process->pid);
+            gtk_tree_store_remove(pro_tree_model, &iter);
+        }
+    }
+}
+static void 
 update_model()
 {
     GtkTreeIter iter;
@@ -49,14 +98,25 @@ update_model()
     gint list_len; 
     gchar vsz[64], rss[64], cpu[16];
     Process *process;
-    
+    GArray *old_process_list = process_list;
+
+    /*new_process_list = g_array_new(FALSE, FALSE, sizeof(Process));
+    get_process_list(new_process_list);
+
     if (process_list != NULL) {
+        rm_terminated_process(new_process_list);
         g_array_remove_range(process_list, 0, process_list->len);
-    } else {
-        process_list = g_array_new(FALSE, FALSE, sizeof(Process));
+    }
+    process_list = new_process_list;*/
+    
+    process_list = g_array_new(FALSE, FALSE, sizeof(Process));
+    get_process_list(process_list);
+
+    if (old_process_list != NULL) {
+        rm_terminated_process(old_process_list);
+        g_array_free(old_process_list, TRUE);
     }
 
-    get_process_list(process_list);
     list_len = process_list->len;
 
     for (i = 0; i < list_len; i++) {
@@ -65,7 +125,7 @@ update_model()
         memory_human_size(process->rss, rss);
         g_snprintf(cpu, 16, "%.2f%%", process->cpu_user 
                 + process->cpu_system);
-        gtk_tree_store_append(pro_tree_model, &iter, NULL);
+        get_tree_iter(&iter, process->pid);
         gtk_tree_store_set(pro_tree_model, &iter, 
                 PT_COLUMN_COMMAND, process->name, 
                 PT_COLUMN_PID, process->pid, 
@@ -195,11 +255,14 @@ init_process_page()
                 G_TYPE_STRING, G_TYPE_FLOAT, G_TYPE_STRING,
                 G_TYPE_INT);
     } else {
-        gtk_tree_store_clear(pro_tree_model);
+        //gtk_tree_store_clear(pro_tree_model);
     }
     update_model();
-    pro_tree_view = gtk_tree_view_new_with_model(
+    if (pro_tree_view == NULL) {
+        pro_tree_view = gtk_tree_view_new_with_model(
             GTK_TREE_MODEL(pro_tree_model));
+        init_column(pro_tree_view);
+    }
 
 /*    if (pro_tree_view == NULL) {
         pro_tree_view = gtk_tree_view_new_with_model(
@@ -208,7 +271,6 @@ init_process_page()
         gtk_tree_view_set_model(GTK_TREE_VIEW(pro_tree_view),
                 GTK_TREE_MODEL(pro_tree_model));
     }*/
-    init_column(pro_tree_view);
     
     /*GList *children = gtk_container_get_children(
             GTK_CONTAINER(process_win));
@@ -219,11 +281,12 @@ init_process_page()
     }*/
     //gtk_container_add(GTK_CONTAINER(process_win), pro_tree_view);
     //gtk_widget_show(process_win);
+    //g_signal_connect(pro_tree_view, "select-cursor-row", G_CALLBACK (selected), NULL);
     return pro_tree_view;
 }
 
 static void
-column_clicked (GtkTreeViewColumn *column)
+column_clicked(GtkTreeViewColumn *column)
 {
     gint sort_column_id;
     GtkSortType sort_type;
