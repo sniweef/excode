@@ -1,12 +1,15 @@
 #include <gtk/gtk.h>
 #include <glib.h>
 #include "process-tree.h"
+#include "statusbar.h"
+
+#define UI_PATH "ui"
 
 gboolean
 init_timeout()
-//init_timeout(gpointer data)
 {
     init_process_page();
+    update_statusbar();
     return TRUE;
 }
 int
@@ -14,13 +17,13 @@ main(int argc, char *argv[])
 {
     GtkBuilder *builder;
     GObject *window;
-    GObject *process_win;
+    GObject *process_win, *statusbar;
 
     gtk_init(&argc, &argv);
 
     /* Construct a GtkBuilder instance and load our UI description */
     builder = gtk_builder_new();
-    gtk_builder_add_from_file(builder, "ui", NULL);
+    gtk_builder_add_from_file(builder, UI_PATH, NULL);
     gtk_builder_connect_signals(builder, NULL);
 
     /* Connect signal handlers to the constructed widgets. */
@@ -33,6 +36,8 @@ main(int argc, char *argv[])
     //gtk_container_set_reallocate_redraws(GTK_CONTAINER(process_win),
             //TRUE);
 
+    statusbar = gtk_builder_get_object(builder, "statusbar");
+    init_statusbar(GTK_STATUSBAR(statusbar));
     gtk_widget_show_all(GTK_WIDGET(window));
     g_timeout_add(750, (GSourceFunc)init_timeout, NULL);
 

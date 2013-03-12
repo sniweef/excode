@@ -15,13 +15,14 @@ enum {
     COLUMN_PRIO,
     N_COLUMNS,
 };
-
 static GtkTreeStore *pro_tree_model = NULL;
 static GArray *process_list = NULL;
 static GtkWidget *pro_tree_view = NULL;
 static GtkTreeViewColumn *sort_column = NULL;
 
-static void column_clicked (GtkTreeViewColumn *column);
+static void column_clicked(GtkTreeViewColumn *column);
+static gboolean treeview_clicked (GtkTreeView *treeview, 
+        GdkEventButton *event);
 //static void selected(GtkTreeView *tree_view, gboolean arg, gpointer data);
 
 static void
@@ -263,6 +264,8 @@ init_process_page()
             GTK_TREE_MODEL(pro_tree_model));
         init_column(pro_tree_view);
     }
+    g_signal_connect(pro_tree_view, "button-press-event", 
+            G_CALLBACK(treeview_clicked), NULL);
 
 /*    if (pro_tree_view == NULL) {
         pro_tree_view = gtk_tree_view_new_with_model(
@@ -314,4 +317,215 @@ column_clicked(GtkTreeViewColumn *column)
     gtk_tree_view_column_set_sort_order (column, sort_type);
 
     sort_column = column;
+}
+
+static void
+send_signal(GtkMenuItem *mi, gpointer user_data)
+{
+        GtkWidget *dialog;
+        guint pid = GPOINTER_TO_UINT(g_object_get_data(G_OBJECT(mi),
+                    "pid"));
+        gint tm_signal = GPOINTER_TO_INT(user_data);
+
+        if (tm_signal == SIGNAL_KILL) {
+            gint res;
+            dialog = gtk_message_dialog_new(NULL, 0,
+                    GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO,
+                    "kill process");
+            gtk_message_dialog_format_secondary_text(
+                    GTK_MESSAGE_DIALOG(dialog),
+                    "Are you sure you want to kill the PID %d?", pid);
+            gtk_window_set_title(GTK_WINDOW (dialog), "os-tm");
+            gtk_window_set_position(GTK_WINDOW(dialog), GTK_WIN_POS_MOUSE);
+            res = gtk_dialog_run(GTK_DIALOG(dialog));
+            gtk_widget_destroy (dialog);
+            if (res != GTK_RESPONSE_YES)
+                return;
+        }
+
+        if (!send_signal_to_pid(pid, tm_signal)) {
+            dialog = gtk_message_dialog_new(NULL, 0, GTK_MESSAGE_ERROR,
+                    GTK_BUTTONS_CLOSE, "Error sending signal");
+            gtk_message_dialog_format_secondary_text(
+                    GTK_MESSAGE_DIALOG (dialog),
+                    "An error was encountered by sending a signal to the PID %d.\nIt is likely you don't have the required privileges.", pid);
+            gtk_window_set_title(GTK_WINDOW (dialog), "os-tm");
+            gtk_window_set_position(GTK_WINDOW(dialog), GTK_WIN_POS_MOUSE);
+            gtk_dialog_run(GTK_DIALOG(dialog));
+            gtk_widget_destroy(dialog);
+        }
+}
+
+static void
+set_priority(GtkMenuItem *mi, gpointer user_data)
+{
+    guint pid = GPOINTER_TO_UINT(g_object_get_data(G_OBJECT(mi), "pid"));
+    gint priority = GPOINTER_TO_INT(user_data);
+
+    if (!set_priority_to_pid(pid, priority)) {
+        GtkWidget *dialog = gtk_message_dialog_new(NULL, 0,
+                GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
+                "Error setting priority");
+        gtk_message_dialog_format_secondary_text(
+                GTK_MESSAGE_DIALOG(dialog),
+                "An error was encountered by setting a priority to the PID %d.\nIt is likely you don't have the required privileges.", pid);
+        gtk_window_set_title(GTK_WINDOW(dialog), "os-tm");
+        gtk_window_set_position(GTK_WINDOW(dialog), GTK_WIN_POS_MOUSE);
+        gtk_dialog_run(GTK_DIALOG(dialog));
+        gtk_widget_destroy(dialog);
+    }
+}
+static void
+show_cmdline_dialog(GtkMenuItem *mi, gpointer user_data)
+{
+    guint pid = GPOINTER_TO_UINT(g_object_get_data(G_OBJECT(mi), "pid"));
+    Process *process;
+    gint i;
+
+    for (i = 0; i < process_list->len; i++) {
+        process = &g_array_index(process_list, Process, i);
+        if (process->pid == pid) 
+            break;
+    }
+
+    GtkWidget *dialog = gtk_message_dialog_new(NULL, 0,
+            GTK_MESSAGE_INFO, GTK_BUTTONS_OK, "Cmdline");
+    gtk_message_dialog_format_secondary_text(
+                GTK_MESSAGE_DIALOG(dialog), process->cmdline);
+            
+    gtk_window_set_title(GTK_WINDOW (dialog), "os-tm");
+    gtk_window_set_position(GTK_WINDOW(dialog), GTK_WIN_POS_MOUSE);
+    gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_widget_destroy (dialog);
+}
+static GtkWidget *
+build_context_menu(guint pid)
+{
+    GtkWidget *menu, *menu_priority, *mi;
+    menu = gtk_menu_new();
+
+    if (!pid_is_sleeping (pid)) {
+        mi = gtk_menu_item_new_with_label("Stop");
+        g_object_set_data(G_OBJECT(mi), "pid", GUINT_TO_POINTER(pid));
+        gtk_container_add(GTK_CONTAINER(menu), mi);
+        g_signal_connect(mi, "activate", G_CALLBACK(send_signal), 
+                GINT_TO_POINTER(SIGNAL_STOP));
+    } else {
+        mi = gtk_menu_item_new_with_label("Continue");
+        g_object_set_data(G_OBJECT(mi), "pid", GUINT_TO_POINTER(pid));
+        gtk_container_add (GTK_CONTAINER (menu), mi);
+        g_signal_connect(mi, "activate", G_CALLBACK(send_signal),
+                GINT_TO_POINTER (SIGNAL_CONTINUE));
+    }
+
+    mi = gtk_menu_item_new_with_label("Kill");
+    g_object_set_data(G_OBJECT(mi), "pid", GUINT_TO_POINTER(pid));
+    gtk_container_add(GTK_CONTAINER(menu), mi);
+    g_signal_connect(mi, "activate", G_CALLBACK(send_signal),
+            GINT_TO_POINTER(SIGNAL_KILL));
+
+    menu_priority = gtk_menu_new ();
+
+    mi = gtk_menu_item_new_with_label("Very low");
+    g_object_set_data(G_OBJECT(mi), "pid", GUINT_TO_POINTER(pid));
+    gtk_container_add(GTK_CONTAINER(menu_priority), mi);
+    g_signal_connect(mi, "activate", G_CALLBACK(set_priority),
+            GINT_TO_POINTER(PRIORITY_VERY_LOW));
+
+    mi = gtk_menu_item_new_with_label("Low");
+    g_object_set_data(G_OBJECT (mi), "pid", GUINT_TO_POINTER(pid));
+    gtk_container_add(GTK_CONTAINER(menu_priority), mi);
+    g_signal_connect(mi, "activate", G_CALLBACK(set_priority),
+            GINT_TO_POINTER(PRIORITY_LOW));
+
+    mi = gtk_menu_item_new_with_label("Normal");
+    g_object_set_data(G_OBJECT(mi), "pid", GUINT_TO_POINTER(pid));
+    gtk_container_add(GTK_CONTAINER(menu_priority), mi);
+    g_signal_connect(mi, "activate", G_CALLBACK(set_priority),
+            GINT_TO_POINTER(PRIORITY_NORMAL));
+
+    mi = gtk_menu_item_new_with_label("High");
+    g_object_set_data(G_OBJECT(mi), "pid", GUINT_TO_POINTER(pid));
+    gtk_container_add(GTK_CONTAINER(menu_priority), mi);
+    g_signal_connect(mi, "activate", G_CALLBACK(set_priority),
+            GINT_TO_POINTER(PRIORITY_HIGH));
+
+    mi = gtk_menu_item_new_with_label("Very high");
+    g_object_set_data(G_OBJECT(mi), "pid", GUINT_TO_POINTER(pid));
+    gtk_container_add(GTK_CONTAINER(menu_priority), mi);
+    g_signal_connect(mi, "activate", G_CALLBACK(set_priority),
+            GINT_TO_POINTER(PRIORITY_VERY_HIGH));
+
+    mi = gtk_menu_item_new_with_label("Priority");
+    gtk_menu_item_set_submenu(GTK_MENU_ITEM(mi), menu_priority);
+    gtk_container_add(GTK_CONTAINER(menu), mi);
+
+    mi = gtk_menu_item_new_with_label("Cmdline");
+    g_object_set_data(G_OBJECT(mi), "pid", GUINT_TO_POINTER(pid));
+    gtk_container_add(GTK_CONTAINER(menu), mi);
+    g_signal_connect(mi, "activate", G_CALLBACK(show_cmdline_dialog),
+            NULL); 
+
+
+    gtk_widget_show_all(menu);
+    return menu;
+}
+
+static void
+position_menu(GtkMenu *menu, gint *x, gint *y, gboolean *push_in,
+        gpointer data)
+{
+    gdk_window_get_origin(gtk_tree_view_get_bin_window(
+                GTK_TREE_VIEW(pro_tree_view)), x, y);
+    *x += 5;
+    *y += 5;
+    *push_in = TRUE;
+}
+
+static void 
+popup_menu(guint pid, guint activate_time, gboolean at_pointer_pos)
+{
+    static GtkWidget *menu = NULL;
+    GtkMenuPositionFunc position_func = NULL;
+
+    if (at_pointer_pos == FALSE)
+        position_func = (GtkMenuPositionFunc)position_menu;
+    if (menu != NULL)
+        gtk_widget_destroy(menu);
+    menu = build_context_menu(pid);
+    gtk_menu_popup(GTK_MENU(menu), NULL, NULL, position_func,
+            pro_tree_view, 1, activate_time);
+    
+}
+static gboolean treeview_clicked (GtkTreeView *treeview, 
+        GdkEventButton *event)
+{
+    guint pid;
+
+    if (event->button != 3)
+        return FALSE;
+
+    GtkTreeSelection *selection;
+    GtkTreePath *path;
+    GtkTreeIter iter;
+
+    selection = gtk_tree_view_get_selection(treeview);
+    gtk_tree_view_get_path_at_pos(treeview, (gint)event->x, 
+            (gint)event->y, &path, NULL, NULL, NULL);
+
+    if (path == NULL)
+        return FALSE;
+    gtk_tree_model_get_iter(GTK_TREE_MODEL(pro_tree_model), &iter, path);
+    gtk_tree_model_get(GTK_TREE_MODEL(pro_tree_model), &iter,
+            PT_COLUMN_PID, &pid, -1);
+    gtk_tree_selection_select_path(selection, path);
+    gtk_tree_path_free(path);
+    
+    popup_menu(pid, event->time, TRUE);
+    return TRUE;
+}
+guint
+get_process_num()
+{
+    return process_list->len;
 }

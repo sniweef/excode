@@ -21,6 +21,7 @@ enum {
 };
 
 GtkWidget *init_process_page();
+guint get_process_num();
 
 //void init_process_page(GtkWidget *process_win);
 
