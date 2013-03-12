@@ -322,7 +322,6 @@ get_cpu_usage()
             (gdouble)jiffies_total_delta;
         //g_print("cpu_usage=%f", cpu_usage);
     }
-
     return cpu_usage;
 }
 gfloat

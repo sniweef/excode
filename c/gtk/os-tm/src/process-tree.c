@@ -91,7 +91,7 @@ rm_terminated_process(GArray *old_process_list)
         }
     }
 }
-static void 
+void 
 update_model()
 {
     GtkTreeIter iter;
@@ -248,22 +248,22 @@ GtkWidget *
 init_process_page()
 {
     
-    if (pro_tree_model == NULL) {
+    //if (pro_tree_model == NULL) {
         pro_tree_model = gtk_tree_store_new(PT_N_COLUMNS-3, 
                 G_TYPE_STRING, G_TYPE_UINT, G_TYPE_UINT,
                 G_TYPE_STRING, G_TYPE_UINT, G_TYPE_STRING,
                 G_TYPE_UINT64, G_TYPE_STRING, G_TYPE_UINT,
                 G_TYPE_STRING, G_TYPE_FLOAT, G_TYPE_STRING,
                 G_TYPE_INT);
-    } else {
+    //} else {
         //gtk_tree_store_clear(pro_tree_model);
-    }
+    //}
     update_model();
-    if (pro_tree_view == NULL) {
+    //if (pro_tree_view == NULL) {
         pro_tree_view = gtk_tree_view_new_with_model(
             GTK_TREE_MODEL(pro_tree_model));
         init_column(pro_tree_view);
-    }
+    //}
     g_signal_connect(pro_tree_view, "button-press-event", 
             G_CALLBACK(treeview_clicked), NULL);
 

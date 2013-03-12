@@ -29,12 +29,12 @@ init_statusbar(GtkStatusbar *statusbar)
 
 void 
 //update_statusbar(GObject *object, guint property_id, const GValue *value)
-update_statusbar()
+update_statusbar(gfloat cpu_usage, gfloat memory_usage)
 {
-    gchar text[15];
+    gchar text[20];
     guint num_process = get_process_num();
-    gfloat cpu_usage = get_cpu_usage();
-    gfloat memory_usage = get_memory_usage();
+    /*gfloat cpu_usage = get_cpu_usage();
+    gfloat memory_usage = get_memory_usage();*/
 
 
     g_snprintf(text, sizeof(text), "Processes: %u%%", num_process);

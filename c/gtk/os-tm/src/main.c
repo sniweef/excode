@@ -2,14 +2,21 @@
 #include <glib.h>
 #include "process-tree.h"
 #include "statusbar.h"
+#include "monitor.h"
 
 #define UI_PATH "ui"
 
 gboolean
 init_timeout()
 {
-    init_process_page();
-    update_statusbar();
+    gfloat cpu_usage, mem_usage;
+    update_model();
+
+    update_monitor(&cpu_usage, &mem_usage);
+    //g_print("%f\t%f\n", cpu_usage, mem_usage);
+    
+    //use the monitor value below
+    update_statusbar(cpu_usage, mem_usage);
     return TRUE;
 }
 int
@@ -18,6 +25,7 @@ main(int argc, char *argv[])
     GtkBuilder *builder;
     GObject *window;
     GObject *process_win, *statusbar;
+    GObject *cpu_da, *mem_da;
 
     gtk_init(&argc, &argv);
 
@@ -38,6 +46,12 @@ main(int argc, char *argv[])
 
     statusbar = gtk_builder_get_object(builder, "statusbar");
     init_statusbar(GTK_STATUSBAR(statusbar));
+    
+    cpu_da = gtk_builder_get_object(builder, "cpu-drawing-area");
+    mem_da = gtk_builder_get_object(builder, "memory-drawing-area");
+    g_signal_connect(cpu_da, "draw", G_CALLBACK(draw_cpu_usage), NULL);
+    g_signal_connect(mem_da, "draw", G_CALLBACK(draw_memory_usage), NULL);
+
     gtk_widget_show_all(GTK_WIDGET(window));
     g_timeout_add(750, (GSourceFunc)init_timeout, NULL);
 
