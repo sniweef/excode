@@ -18,14 +18,15 @@ int main(int argc, char *argv[])
         printf("open %s failed.\n", argv[1]);
         return -1;
     }
-    if ((dest = open(argv[2], O_RDWR | O_CREAT, FILE_MODE)) < 0) {
+    if ((dest = open(argv[2], O_WRONLY|O_CREAT|O_TRUNC, FILE_MODE)) < 0) {
         printf("open or create %s failed.\n", argv[1]);
         return -1;
     }
 
     int n;
-    while ((n = read(source, buffer, BUFFER_SIZE)) > 0)
+    while ((n = read(source, buffer, BUFFER_SIZE)) > 0) {
         write(dest, buffer, n);
+    }
 
     close(source);
     close(dest);

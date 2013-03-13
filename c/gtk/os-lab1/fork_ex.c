@@ -32,33 +32,45 @@ static void get_file_content(char *filename, char *buffer)
     buffer[n] = '\0';
 }
 
-int main(int argc, char *argv[])
+/* id: 0 - parent        *
+ *     1 - first child   *
+ *     2 - second child  */
+static void go(int *argc, char **argv[], int id)
 {
-    pid_t pid[2];
     GtkWidget *window;
     GtkBuilder *builder;
     GtkLabel *header_label, *result_label;
     char command[100];
     char buffer[BUFFER_SIZE];
+    char *id_text[3][2] = {
+        {"parent_in", "parent_out"},
+        {"child1_in", "child1_out"},
+        {"child2_in", "child2_out"}
+    };
 
+    gtk_init(argc, argv);
+    build_ui(&builder, &window, &header_label, &result_label);
+    g_snprintf(command, 100, "./mycp %s %s", id_text[id][0], id_text[id][1]);
+    system(command);
 
+    g_snprintf(command, 100, "Execute command: ./mycp %s %s\nFile %s contains:", id_text[id][0], id_text[id][1], id_text[id][1]);
+    get_file_content(id_text[id][1], buffer);
+    gtk_label_set_text(header_label, command);
+    gtk_label_set_text(result_label, buffer);
+
+    gtk_widget_show(window);
+    gtk_main();
+    
+}
+int main(int argc, char *argv[])
+{
+    pid_t pid[2];
 
     if ((pid[0] = fork()) < 0) {
         printf("fork error!\n");
         return -1;
     } else if (pid[0] == 0) {
-        gtk_init(&argc, &argv);
-        build_ui(&builder, &window, &header_label, &result_label);
-        g_snprintf(command, 100, "./mycp child1_in child1_out");
-        system(command);
-
-        g_snprintf(command, 100, "Execute command: ./mycp child1_in child1_out\nFile child1_out contains:");
-        get_file_content("child1_out", buffer);
-        gtk_label_set_text(header_label, command);
-        gtk_label_set_text(result_label, buffer);
-
-        gtk_widget_show(window);
-        gtk_main();
+        go(&argc, &argv, 1);
         exit(0);
     }
 
@@ -66,34 +78,11 @@ int main(int argc, char *argv[])
         printf("fork error!\n");
         return -1;
     } else if (pid[1] == 0) {
-        gtk_init(&argc, &argv);
-        build_ui(&builder, &window, &header_label, &result_label);
-        g_snprintf(command, 100, "./mycp child2_in child2_out");
-        system(command);
-
-        g_snprintf(command, 100, "Execute command: ./mycp chil2_in child2_out\nFile child2_out contains:");
-        get_file_content("child2_out", buffer);
-        gtk_label_set_text(header_label, command);
-        gtk_label_set_text(result_label, buffer);
-
-        gtk_widget_show(window);
-        gtk_main();
+        go(&argc, &argv, 2);
         exit(0);
     }
 
-    gtk_init(&argc, &argv);
-    build_ui(&builder, &window, &header_label, &result_label);
-    g_snprintf(command, 100, "./mycp parent_in parent_out");
-    system(command);
-
-    g_snprintf(command, 100, "Execute command: ./mycp parent_in parent_out\nFile parent_out contains:");
-    get_file_content("parent_out", buffer);
-    gtk_label_set_text(header_label, command);
-    gtk_label_set_text(result_label, buffer);
-
-    gtk_widget_show(window);
-    gtk_main();
-
+    go(&argc, &argv, 0);
     wait(NULL);
     wait(NULL);
     return 0;
