@@ -7,7 +7,7 @@ Shortcut=xfce-tm//src//xfce4-taskmanager
 Expand=xfce-tm%%%xfce-tm//src%%%xfce-tm//src//xfce4-taskmanager
 
 [File Loader]
-Files=../../src/process-tree-view.c#448%%%../../src/process-statusbar.c#152%%%../../src/task-manager-linux.c#49%%%../../src/main.c#113%%%../../src/process-monitor.c#197
+Files=../../src/process-tree-view.c#448%%%../../src/process-statusbar.c#152%%%../../src/task-manager-linux.c#49%%%../../src/main.c#93%%%../../src/process-monitor.c#210%%%../../src/process-window.c#153
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n

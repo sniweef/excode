@@ -1,6 +1,6 @@
 CC = gcc
 FLAG = `pkg-config --cflags --libs gtk+-3.0`
-all_o = main.o system.o process-tree.o statusbar.o monitor.c
+all_o = main.o system.o process-tree.o statusbar.o monitor.c 
 
 all: $(all_o)
 	$(CC) -Wall -o os-tm $(all_o) $(FLAG)

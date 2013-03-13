@@ -28,7 +28,6 @@ init_statusbar(GtkStatusbar *statusbar)
 }
 
 void 
-//update_statusbar(GObject *object, guint property_id, const GValue *value)
 update_statusbar(gfloat cpu_usage, gfloat memory_usage)
 {
     gchar text[20];
@@ -37,7 +36,7 @@ update_statusbar(gfloat cpu_usage, gfloat memory_usage)
     gfloat memory_usage = get_memory_usage();*/
 
 
-    g_snprintf(text, sizeof(text), "Processes: %u%%", num_process);
+    g_snprintf(text, sizeof(text), "Processes: %u", num_process);
     gtk_label_set_text(GTK_LABEL(label_num_processes), text);
 
     g_snprintf(text, sizeof(text), "CPU: %.2f%%", cpu_usage);

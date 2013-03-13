@@ -2,7 +2,7 @@
 //#include <glib.h>
 #include "system.h"
 
-#define PEAK_NUM 10
+#define PEAK_NUM 50
 
 static GArray *cpu_usage_array = NULL;
 static GArray *mem_usage_array = NULL;
@@ -42,7 +42,7 @@ draw_cpu_usage(GtkWidget *cpu_da, cairo_t *cr, gpointer data)
     cpu_drawing_area = cpu_da;
     width = gtk_widget_get_allocated_width(cpu_da);
     height = gtk_widget_get_allocated_height(cpu_da);
-    step_size = width / (PEAK_NUM - 1);
+    step_size = width / (PEAK_NUM - PEAK_NUM / 10);
 
     gtk_style_context_get_color(gtk_widget_get_style_context(cpu_da),
             0, &color);
@@ -52,23 +52,31 @@ draw_cpu_usage(GtkWidget *cpu_da, cairo_t *cr, gpointer data)
     cairo_set_source_rgb(cr, 0.42, 0.65, 0.80);
 
     cairo_save(cr);
-    cairo_move_to (cr, width, height);
-    cairo_translate (cr, step_size, 0);
+    cairo_move_to(cr, width, height);
+    cairo_translate(cr, step_size, 0);
     for (i = 0; i < cpu_usage_array->len; i++) {
         peak = &g_array_index(cpu_usage_array, gfloat, i);
-        //g_print("i=%d\npeak=%f\n", i, *peak/100);
         cairo_translate(cr, -step_size, 0);
         cairo_line_to(cr, width, (1.0-*peak/100)*height);
     }
+    cairo_line_to (cr, width, height);
+    cairo_fill(cr);
     cairo_stroke(cr);
 
+    gchar percent[5];
     cairo_restore(cr);
-    cairo_set_line_width (cr, 1.0);
+    cairo_set_source_rgb(cr, 0, 0, 0);
+    cairo_set_line_width (cr, 1.5);
+    cairo_set_antialias (cr, CAIRO_ANTIALIAS_DEFAULT);
     for (i = 25; i <= 75; i += 25) {
-        cairo_move_to (cr, 0.0, i * height / 100);
-        cairo_line_to (cr, 4.0, i * height / 100);
-        cairo_move_to (cr, width, i * height / 100);
-        cairo_line_to (cr, width - 4.0, i * height / 100);
+        g_snprintf(percent, 5, "%d%%", 100-i);
+        // show percent text before the line
+        cairo_move_to(cr, 0.0, (i-1)*height/100);
+        cairo_show_text(cr, percent);
+        cairo_move_to(cr, 0.0, i*height/100);
+        cairo_line_to(cr, 4.0, i*height/100);
+        cairo_move_to(cr, width, i*height/100);
+        cairo_line_to(cr, width-4.0, i*height/100);
     }
     cairo_stroke(cr);
     return FALSE;
@@ -87,7 +95,8 @@ draw_memory_usage(GtkWidget *mem_da, cairo_t *cr, gpointer data)
 
     width = gtk_widget_get_allocated_width(mem_da);
     height = gtk_widget_get_allocated_height(mem_da);
-    step_size = width / (PEAK_NUM - 1);
+    step_size = width / (PEAK_NUM - PEAK_NUM / 10);
+    //step_size = width / (PEAK_NUM - 1);
 
     gtk_style_context_get_color(gtk_widget_get_style_context(mem_da),
             0, &color);
@@ -97,22 +106,31 @@ draw_memory_usage(GtkWidget *mem_da, cairo_t *cr, gpointer data)
     cairo_set_source_rgb(cr, 0.42, 0.65, 0.80);
 
     cairo_save(cr);
-    cairo_move_to (cr, width, height);
-    cairo_translate (cr, step_size, 0);
+    cairo_move_to(cr, width, height);
+    cairo_translate(cr, step_size, 0);
     for (i = 0; i < mem_usage_array->len; i++) {
         peak = &g_array_index(mem_usage_array, gfloat, i);
         cairo_translate(cr, -step_size, 0);
         cairo_line_to(cr, width, (1.0-*peak/100)*height);
     }
+    cairo_line_to(cr, width, height);
+    cairo_fill(cr);
     cairo_stroke(cr);
 
+    gchar percent[5];
     cairo_restore(cr);
-    cairo_set_line_width (cr, 1.0);
+    cairo_set_source_rgb(cr, 0, 0, 0);
+    cairo_set_line_width(cr, 1.5);
+    cairo_set_antialias(cr, CAIRO_ANTIALIAS_DEFAULT);
     for (i = 25; i <= 75; i += 25) {
-        cairo_move_to (cr, 0.0, i * height / 100);
-        cairo_line_to (cr, 4.0, i * height / 100);
-        cairo_move_to (cr, width, i * height / 100);
-        cairo_line_to (cr, width - 4.0, i * height / 100);
+        g_snprintf(percent, 5, "%d%%", 100-i);
+        // show percent text before the line
+        cairo_move_to (cr, 0.0, (i-1)*height/100);
+        cairo_show_text(cr, percent);
+        cairo_move_to(cr, 0.0, i*height/100);
+        cairo_line_to(cr, 4.0, i*height/100);
+        cairo_move_to(cr, width, i*height/100);
+        cairo_line_to(cr, width-4.0, i*height/100);
     }
     cairo_stroke(cr);
     return FALSE;
