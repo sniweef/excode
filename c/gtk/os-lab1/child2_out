@@ -1,0 +1,10 @@
+total 56
+drwxr-xr-x 2 sniweef users  4096 Mar 13 19:49 .
+drwxr-xr-x 8 sniweef users  4096 Mar 13 19:03 ..
+-rw-r--r-- 1 sniweef users    73 Mar 13 19:48 child1_in
+-rw-r--r-- 1 sniweef users     0 Mar 13 19:49 child2_in
+-rwxr-xr-x 1 sniweef users  9956 Mar 13 19:41 fork_ex
+-rw-r--r-- 1 sniweef users  1338 Mar 13 19:48 fork_ex.c
+-rwxr-xr-x 1 sniweef users  7561 Mar 13 19:19 mycp
+-rw-r--r-- 1 sniweef users   754 Mar 13 19:19 mycp.c
+-rw-r--r-- 1 sniweef users  1606 Mar 13 19:45 ui
