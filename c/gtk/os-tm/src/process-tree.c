@@ -31,13 +31,13 @@ memory_human_size(guint64 mem, gchar *mem_str)
     guint64 mem_tmp;
 
     mem_tmp = mem / 1024 / 1024;
-    if (mem_tmp > 3) {
+    if (mem_tmp > 1) {
         g_snprintf (mem_str, 64, "%lu MiB", (gulong)mem_tmp);
         return;
     }
 
     mem_tmp = mem / 1024;
-    if (mem_tmp > 8) {
+    if (mem_tmp > 1) {
         g_snprintf (mem_str, 64, "%lu KiB", (gulong)mem_tmp);
         return;
     }
