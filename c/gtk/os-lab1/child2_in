@@ -1,0 +1,12 @@
+total 52
+-rw-r--r-- 1 sniweef users    96 Mar 13 20:30 child1_in
+-rw-r--r-- 1 sniweef users   139 Mar 13 20:29 child1_out
+-rw-r--r-- 1 sniweef users     0 Mar 13 20:30 child2_in
+-rw-r--r-- 1 sniweef users  1092 Mar 13 20:29 child2_out
+-rwxr-xr-x 1 sniweef users 11322 Mar 13 20:28 fork_ex
+-rw-r--r-- 1 sniweef users  3253 Mar 13 20:28 fork_ex.c
+-rwxr-xr-x 1 sniweef users  7561 Mar 13 19:19 mycp
+-rw-r--r-- 1 sniweef users   754 Mar 13 19:19 mycp.c
+-rw-r--r-- 1 sniweef users    30 Mar 13 19:54 parent_in
+-rw-r--r-- 1 sniweef users    30 Mar 13 20:29 parent_out
+-rw-r--r-- 1 sniweef users  2174 Mar 13 20:11 ui
