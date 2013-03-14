@@ -247,44 +247,21 @@ init_column(GtkWidget *pro_tree_view)
 GtkWidget * 
 init_process_page()
 {
-    
-    //if (pro_tree_model == NULL) {
-        pro_tree_model = gtk_tree_store_new(PT_N_COLUMNS-3, 
-                G_TYPE_STRING, G_TYPE_UINT, G_TYPE_UINT,
-                G_TYPE_STRING, G_TYPE_UINT, G_TYPE_STRING,
-                G_TYPE_UINT64, G_TYPE_STRING, G_TYPE_UINT,
-                G_TYPE_STRING, G_TYPE_FLOAT, G_TYPE_STRING,
-                G_TYPE_INT);
-    //} else {
-        //gtk_tree_store_clear(pro_tree_model);
-    //}
+    pro_tree_model = gtk_tree_store_new(PT_N_COLUMNS-3, 
+            G_TYPE_STRING, G_TYPE_UINT, G_TYPE_UINT,
+            G_TYPE_STRING, G_TYPE_UINT, G_TYPE_STRING,
+            G_TYPE_UINT64, G_TYPE_STRING, G_TYPE_UINT,
+            G_TYPE_STRING, G_TYPE_FLOAT, G_TYPE_STRING,
+            G_TYPE_INT);
     update_model();
-    //if (pro_tree_view == NULL) {
-        pro_tree_view = gtk_tree_view_new_with_model(
+
+    pro_tree_view = gtk_tree_view_new_with_model(
             GTK_TREE_MODEL(pro_tree_model));
-        init_column(pro_tree_view);
-    //}
+    init_column(pro_tree_view);
+
     g_signal_connect(pro_tree_view, "button-press-event", 
             G_CALLBACK(treeview_clicked), NULL);
 
-/*    if (pro_tree_view == NULL) {
-        pro_tree_view = gtk_tree_view_new_with_model(
-                GTK_TREE_MODEL(pro_tree_model));
-    } else {
-        gtk_tree_view_set_model(GTK_TREE_VIEW(pro_tree_view),
-                GTK_TREE_MODEL(pro_tree_model));
-    }*/
-    
-    /*GList *children = gtk_container_get_children(
-            GTK_CONTAINER(process_win));
-    if (children != NULL) {
-        g_print("remove child\n");
-        gtk_container_remove(GTK_CONTAINER(process_win), 
-                GTK_WIDGET(children->data));
-    }*/
-    //gtk_container_add(GTK_CONTAINER(process_win), pro_tree_view);
-    //gtk_widget_show(process_win);
-    //g_signal_connect(pro_tree_view, "select-cursor-row", G_CALLBACK (selected), NULL);
     return pro_tree_view;
 }
 
