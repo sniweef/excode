@@ -217,7 +217,9 @@ show_about_dialog(GtkMenuItem *menuitem, gpointer data)
     gtk_show_about_dialog(NULL, 
             "program-name", "os-tm", 
             //"authors", "hzhigeng", 
-            "version", "Version-1.0",
-            "comments", "Author : hzhigeng\nSend e-mail to hzhigeng@gmail.com\n if you find any bug.\n Thanks ~~~",
+            "version", "1.0",
+	    "comments", "Task mannager",
+            "copyright", "Copyright © 2013–2014 hzhigeng<hzhigeng@gmail.com>",
+            "license-type", GTK_LICENSE_GPL_2_0,
             NULL);
 }

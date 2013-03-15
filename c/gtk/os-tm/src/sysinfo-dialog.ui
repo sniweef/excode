@@ -118,7 +118,7 @@
                       <object class="GtkLabel" id="os-title-label">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">OS</property>
+                        <property name="label" translatable="yes">OS-bit</property>
                         <attributes>
                           <attribute name="font-desc" value="&lt;Enter Value&gt; 12"/>
                           <attribute name="weight" value="bold"/>
