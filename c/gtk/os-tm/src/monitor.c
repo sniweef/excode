@@ -42,7 +42,7 @@ draw_cpu_usage(GtkWidget *cpu_da, cairo_t *cr, gpointer data)
     cpu_drawing_area = cpu_da;
     width = gtk_widget_get_allocated_width(cpu_da);
     height = gtk_widget_get_allocated_height(cpu_da);
-    step_size = width / (PEAK_NUM - PEAK_NUM / 10);
+    step_size = width / PEAK_NUM + 1;
 
     gtk_style_context_get_color(gtk_widget_get_style_context(cpu_da),
             0, &color);
@@ -95,8 +95,7 @@ draw_memory_usage(GtkWidget *mem_da, cairo_t *cr, gpointer data)
 
     width = gtk_widget_get_allocated_width(mem_da);
     height = gtk_widget_get_allocated_height(mem_da);
-    step_size = width / (PEAK_NUM - PEAK_NUM / 10);
-    //step_size = width / (PEAK_NUM - 1);
+    step_size = width / PEAK_NUM + 1;
 
     gtk_style_context_get_color(gtk_widget_get_style_context(mem_da),
             0, &color);
