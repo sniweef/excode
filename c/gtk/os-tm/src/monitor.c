@@ -2,7 +2,7 @@
 //#include <glib.h>
 #include "system.h"
 
-#define PEAK_NUM 50
+#define PEAK_NUM 160
 
 static GArray *cpu_usage_array = NULL;
 static GArray *mem_usage_array = NULL;
