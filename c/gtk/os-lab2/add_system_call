@@ -1,0 +1,45 @@
+for anyone who cares:
+I have compiled and runned the custom kernel with a new dummy syscall
+1. https://wiki.archlinux.org/index.php/Ke … ild_System
+this contains main steps needed for kernel compilation with ABS
+2. create a testing folder in src root: src/linux-3.4/testing/
+put inside this folder:
+- a file that contains syscall code: strcpy.c
+#include <linux/linkage.h>
+#include <linux/kernel.h>
+asmlinkage long sys_strcpy(char *dest, char *src)
+{
+	int i=0;
+	while(src[i]!=0) {
+		dest[i]=src[i++];
+	}
+	dest[i]=0;
+	printk("<1>done it!");
+	return 1;
+}
+- and the Makefile that contains just the following line:
+ obj-y:=strcpy.o
+3. add an entry to the syscall table and the prototype of the function:
+- edit the file src/linux-3.4/arch/x86/syscalls/syscall_32.tbl by adding this line to the entry 223 that is free
+223	i386	strcpy			sys_strcpy
+- edit the file src/linux-3.4/include/linux/syscalls.h by adding the prototype of the function
+asmlinkage long sys_strcpy(char	*dest, char *src);
+4. edit the main Makefile in the src root (src/linux-3.4/Makefile) by adding the testing folder created before, as follow:
+core-y		+= kernel/ mm/ fs/ ipc/ security/ crypto/ block/ testing/
+You have done!! 
+Compile the kernel and install the package as explained in #1. 
+Run the custom kernel and write a simple program like this to test the strcpy that's now a syscall (you are not including string.h in order to use strcpy):
+#include <stdio.h>
+int main(int argc, char *argv){
+	char *src="testing the syscall";
+	char dest[40];
+	syscall(223,dest,src);
+	printf("copied string:%s\n",dest);
+}
+Note that the number of the system call is the same defined before; in order to read the message written by the printk function, exec the command dmesg.
+Edit the file /etc/makepkg.conf if you want to use all your cores during compilation phase:
+#-- Make Flags: change this for DistCC/SMP systems
+#MAKEFLAGS="-j2"
+2 is for a single core, add 1 for any other core you are going to use.
+You can use makepkg -e if you want to compile faster, but remember to comment patches in the PKGBUILD before doing this.
+BYE 

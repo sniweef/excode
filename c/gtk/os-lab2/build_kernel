@@ -1,0 +1,10 @@
+1. make mrproper
+2. make menuconfig
+3. make (Same as make vmlinux && make modules && make bzImage) 
+   or make -jN  (N = # of processors + 1) 
+4. make modules_install (in /lib/modules)
+5. cp -v arch/i386/boot/bzImage /boot/vmlinuz-3.4.35
+6. mkinitcpio -k FullKernelName -c /etc/mkinitcpio.conf -g /boot/initramfs-YourKernelName.img(optional)
+7. cp System.map /boot/System.map-YourKernelName
+8. config Grub
+
