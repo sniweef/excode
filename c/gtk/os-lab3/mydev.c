@@ -30,7 +30,7 @@ module_init(init_mydev);
 module_exit(exit_mydev);
 
 #define MODULE_NAME "mydev"
-#define BUFFER_SIZE 8
+#define BUFFER_SIZE 128
 
 int mydev_major = 0;
 char *buffer;
@@ -75,10 +75,10 @@ static ssize_t my_read(struct file *f, char *user_buf, size_t
             len, loff_t *off) 
 {
     int n = (BUFFER_SIZE > len) ? len : BUFFER_SIZE;
-    printk("mydev: begin read %d bytes.\n", n);
-    if (copy_to_user(user_buf, buffer, n) != 0)
+    if (copy_to_user(user_buf, buffer, n) != 0) 
         return -EFAULT;
     if (*off == 0) {
+        printk("mydev: begin read %d bytes.\n", n);
         *off += n;
         return n;
     } else {

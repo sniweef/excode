@@ -2,6 +2,8 @@ child1_in
 child1_out
 child2_in
 child2_out
+data
+data_out
 fork_ex
 fork_ex.c
 mycp

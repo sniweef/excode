@@ -4,6 +4,7 @@
 	<item value="false" key="InstanceOf"/>
 	<item value="0" key="org.eclipse.jdt.uiformatter_page.white_space.java_view.inner"/>
 	<item value="773" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_height"/>
+	<item value="J2SE-1.5" key="org.eclipse.jdt.ui.last.selected.execution.enviroment"/>
 	<item value="true" key="Replace"/>
 	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
 	<item value="0" key="org.eclipse.jdt.uiformatter_page.white_space_tab_page.node"/>
@@ -24,6 +25,9 @@
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
 	</section>
+	<section name="BuildPathsPropertyPage">
+		<item value="3" key="pageIndex"/>
+	</section>
 	<section name="RefactoringWizard.preview">
 		<item value="400" key="height"/>
 		<item value="630" key="width"/>
@@ -38,13 +42,13 @@
 	</section>
 	<section name="ProblemSeveritiesConfigurationBlock">
 		<item value="false" key="expanded4"/>
-		<item value="false" key="expanded3"/>
+		<item value="true" key="expanded3"/>
 		<item value="false" key="expanded2"/>
 		<item value="false" key="expanded1"/>
 		<item value="false" key="expanded7"/>
 		<item value="false" key="expanded6"/>
 		<item value="false" key="expanded5"/>
-		<item value="true" key="expanded0"/>
+		<item value="false" key="expanded0"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.preferences.EditTemplateDialog_dialogBounds">
 		<item value="783" key="DIALOG_WIDTH"/>

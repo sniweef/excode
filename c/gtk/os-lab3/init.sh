@@ -5,4 +5,5 @@ if [[ -n $1 ]]; then
 else
     make
     sudo insmod mydev.ko
+    grep mydev /proc/devices
 fi

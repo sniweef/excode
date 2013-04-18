@@ -7,7 +7,8 @@ ifneq (${KERNELRELEASE},)
 	#     # Otherwise we were called directly from the command line.
 	# Invoke the kernel build system.
 else
-	KERNEL_SOURCE := /usr/src/linux-3.7.10-1-ARCH/
+	#KERNEL_SOURCE := /usr/src/linux-3.7.10-1-ARCH/
+	KERNEL_SOURCE := /home/sniweef/Documents/source/linux-3.4.35
 	PWD := $(shell pwd)
 	#PWD := /home/sniweef/programming/c/gtk/os-lab3
 	#PWD := `pwd`
